@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-header clearfix" id="heading{{myMessage.id}}">
+        <span class="mb-0">
+            <button ng-if="myMessage.priority === 'Info'" class="rounded-circle">
+                <i class="fas fa-info-circle"></i>
+            </button>
+            <button ng-if="myMessage.priority === 'Important'" class="rounded-circle">
+                    <i class="fas fa-exclamation-circle"></i>
+                </button>
+            <button class="btn btn-link accordion-heading" ng-click="updateSelectedMessage(myMessage)" data-toggle="collapse" data-target="#collapse{{myMessage.id}}"
+                aria-expanded="true" aria-controls="collapse{{myMessage.id}}">
+                <h4>{{myMessage.title}}</h4>
+            </button>
+        </span>
+        <div ng-if="$root.isAdmin" class="float-right p-3">
+            <button class="rounded-circle" ng-click="editMessage(myMessage)">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button ng-click="deleteMessage(myMessage)" class="rounded-circle">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="collapse{{myMessage.id}}" class="collapse" aria-labelledby="heading{{myMessage.id}}" data-parent="#accordion">
+        <div class="card-body row">
+            <div class="col-md-7">
+                <div class="media">
+                    <div class="d-flex" id="messageImageDiv">
+                        <img ng-src="{{myMessage.image}}" class="mr-3 rounded" alt="">
+                    </div>
+                    <div class="media-body ml-3">
+                        <h5>Details:</h5>
+                        <p>{{myMessage.details}}</p>
+                        <h5>Priority:</h5>
+                        <p>{{myMessage.priority}}</p>
+                        Added by: <p>{{myMessage.user.userName}}</p>
+                    </div>
+                </div>
+            </div>
+            <div id="commentsDivId" class="bg-light border-left border-secondary relative col-md-5">
+                <h5>Comments:</h5>
+                <div class="mb-3 p-3 rounded clearfix" ng-repeat="comment in myMessage.comments">
+                    <comment></comment>
+                </div>
+
+                <textarea class="w-100 rounded" id="addCommentAreaId" ng-model="newComment.text" placeholder="Add comment" ng-keypress="checkIfEnterKeyWasPressed($event)"></textarea>
+            </div>
+        </div>
+    </div>
+      <!-- Edit comment modal -->
+      <div class="modal fade" id="commentModelId" tabindex="-1" role="dialog" aria-labelledby="commentModelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="commentModelTitleId">Edit comment</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="form-group" name="form" id="form" ng-submit="saveComment()">
+                            <textarea class="w-100" ng-model="commentText" name="details"></textarea>
+                            <br>
+                            <input type="submit" class="btn btn-primary" value="Save">
+                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

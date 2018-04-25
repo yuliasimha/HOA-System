@@ -1,0 +1,25 @@
+<div class="media bg-primary w-100 mt-3 bg-white">
+    <div class="d-flex">
+        <img id="commentUserImageId" ng-src="{{comment.user.image}}" class="mr-3 rounded-circle bg-white" alt="">
+    </div>
+    <div class="media-body">
+        <p>{{comment.user.userName}}</p>
+        <p>{{comment.text}}</p>
+        <div class="media m-1 p-3 rounded clearfix bg-light" ng-repeat="comment in comment.comments">
+            <comment></comment>
+        </div>
+    </div>
+</div>
+<div class="float-right p-1">
+    <button ng-click="addSubComment(comment)" class="rounded-circle">
+        <i class="fas fa-plus"></i>
+    </button>
+    <button ng-click="editComment(comment)" class="rounded-circle">
+        <i class="fas fa-edit"></i>
+    </button>
+    <button ng-click="deleteComment(comment)" class="rounded-circle">
+        <i class="fas fa-trash-alt"></i>
+    </button>
+</div>
+<textarea class="w-100 rounded m-1" ng-model="subComment.text" ng-show="comment.showAddSubComment" ng-blur="closeAddMessageWindow(comment)"
+    placeholder="Reply" ng-keypress="isEnterKeyWasPressedAddSubComment($event,comment)"></textarea>

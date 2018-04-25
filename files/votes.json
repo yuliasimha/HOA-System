@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "title": "Renovation",
+        "details": "Painting the entrance of the building",
+        "votes": [
+            {
+                "userId": "4",
+                "vote": "reject"
+            },
+            {
+                "userId": "2",
+                "vote": "approve"
+            },
+            {
+                "userId": "3",
+                "vote": "reject"
+            }
+        ],
+        "endDate": "12-6-1986",
+        "options": [
+            "approve",
+            "reject"
+        ],
+        "user": {
+            
+          "firstName":"Joe",
+          "lastName":"Green",
+          "userName": "admin",
+          "password": "1111",
+          "email": "joe@gmail.com",
+          "apartaments": 1,
+          "isCommitteeMember": true, 
+          "communityId" : 123,
+          "image": "undefined",
+           "id": 1
+        },
+        "date": "06-06-2017"
+    },
+    {
+        "id": 2,
+        "title": "Tanants meeting",
+        "details": "Participation in the meeting of tenants",
+        "endDate": "12-6-2021",
+        "votes": [
+            {
+                "userId": "8",
+                "vote": "yes"
+            },
+            {
+                "userId": "2",
+                "vote": "yes"
+            },
+            {
+                "userId": "3",
+                "vote": "yes"
+            },
+            {
+                "userId": "1",
+                "vote": "no"
+            }
+        ],
+        "options": [
+            "yes",
+            "no"
+        ],
+        "user": {
+            "apartment": "undefined",
+            "email": "joe@gmail.com",
+            "firstName": "Fabio",
+            "id": "2",
+            "image": "undefined",
+            "isCommitteeMember": false,
+            "lastName": "Green",
+            "password": "1111",
+            "userName": "admin2"
+        },
+        "date": "03-03-2017"
+    }
+]

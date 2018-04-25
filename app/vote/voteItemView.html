@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header clearfix" id="heading{{myVote.id}}">
+        <span class="mb-0">
+            <button class="btn btn-link accordion-heading" data-toggle="collapse" data-target="#collapse{{myVote.id}}" aria-expanded="true"
+                aria-controls="collapse{{myVote.id}}">
+                <p>{{myVote.title}}</p>
+            </button>
+        </span>
+        <div ng-if="$root.isAdmin" class="float-right p-3">
+            <button class="rounded-circle" ng-click="editVoteItem(myVote)">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button ng-click="deleteVoteItem(myVote)" class="rounded-circle">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="collapse{{myVote.id}}" class="collapse" aria-labelledby="heading{{myVote.id}}" data-parent="#accordionVotes">
+        <div class="card-body ">
+            <div>
+                <h4>Details:</h4>
+                <p>{{myVote.details}}</p>
+                <h4>End Date:</h4>
+                <p>{{myVote.endDate | date : "dd.MM.y" }}</p>
+            </div>
+            <div>
+                <h4>Voting Percentage</h4>
+                <div google-chart chart="myChartObject" style="height:200px; width:100%"></div>
+            </div>
+            <div ng-show="myVote.isActive">
+                <h4>Add Vote</h4>
+                <select class="form-control" ng-model="selectedVoteOption" ng-options="x for x in myVote.options" required>
+                </select>
+                <button class="btn btn-secondary btn-lg" ng-click="addVote()">Vote</button>
+            </div>
+            <div ng-if="!myVote.isActive">
+                <h4>Result:</h4>
+                <p>{{votingResult}}</p>
+            </div>
+            <div class="clearfix mt-3">
+                <h4>Your Vote:</h4>
+                <p>{{selectedOptionbyCurrentUser}}</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

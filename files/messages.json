@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1232,
+        "comments": [],
+        "title": "message title1",
+        "details": "message details1",
+        "priority": "Info",
+        "user": {
+            "apartment": "undefined",
+            "email": "joe@gmail.com",
+            "firstName": "Fabio",
+            "id": "2",
+            "image": "undefined",
+            "isCommitteeMember": false,
+            "lastName": "Green",
+            "password": "1111",
+            "userName": "admin2" 
+        },
+       "date" : "03-03-2017"
+    },
+    {
+        "id": 1233,
+        "comments": [],
+        "title": "message title2",
+        "details": "message details2",
+        "priority": "Info",
+        "user": {
+            "apartment": "undefined",
+            "email": "joe@gmail.com",
+            "firstName": "Fabdvfio",
+            "id": "2",
+            "image": "undefined",
+            "isCommitteeMember": false,
+            "lastName": "Gfdreen",
+            "password": "1111",
+            "userName": "admin2" 
+        },
+       "date" : "03-03-2017"
+    },
+    {
+        "id": 123,
+        "comments": [],
+        "title": "message title3",
+        "details": "message details3",
+        "priority": "Info",
+        "user": {
+            "apartment": "undefined",
+            "email": "joe@gmail.com",
+            "firstName": "Fabio",
+            "id": "2",
+            "image": "undefined",
+            "isCommitteeMember": false,
+            "lastName": "Green",
+            "password": "1111",
+            "userName": "admin2" 
+        },
+       "date" : "03-03-2017"
+    }
+]

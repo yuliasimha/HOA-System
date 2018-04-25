@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-header clearfix" id="heading{{myUser.id}}">
+        <span class="mb-0">
+            <button class="btn btn-link accordion-heading" data-toggle="collapse" data-target="#collapse{{myUser.id}}" aria-expanded="true"
+                aria-controls="collapse{{myUser.id}}">
+                <h4>{{myUser.firstName + " " + myUser.lastName}}</h4>
+            </button>
+        </span>
+        <div ng-if="$root.isAdmin" class="float-right p-1">
+                <button ng-click="editUser(myUser)" class="rounded-circle">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button ng-click="deleteUser(myUser)" class="rounded-circle">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+    </div>
+
+
+    <div id="collapse{{myUser.id}}" class="collapse" aria-labelledby="heading{{myUser.id}}" data-parent="#accordion2">
+        <div class="card-body ">
+            <div class="media bg-primary w-100 mt-3 bg-white">
+                <div class="d-flex" id="userImageDivId">
+                    <img ng-src="{{myUser.image}}" class="mr-3 rounded-circle bg-white" alt="">
+                </div>
+                <div class="media-body">
+                    <p>{{myUser.firstName + " " + myUser.lastName}}</p>
+                    <p>{{myUser.email}}</p>
+                    <p>{{myUser.apartment}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

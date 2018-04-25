@@ -1,0 +1,65 @@
+<nav-bar></nav-bar>
+<div class="container">
+
+    <div class="mt-3  mb-1">
+        <div class="row mt-3 mb-3 ">
+            <div class="col-md-7">
+                <input type="text" class="rounded w-100" ng-model="filterByTitleProp" placeholder=" Search">
+            </div>
+            <div class="col-md-5 float-right">
+                <label for="">Filter by priority: </label>
+                <select class="rounded" ng-model="selectedPriorityFilter" ng-options="x for x in filterPriority">
+                </select>
+                Sort by:
+                <input type="radio" ng-model="sortProp" value="date"> Date
+                <input type="radio" ng-model="sortProp" value="priority"> Priority
+            </div>
+        </div>
+        <div>
+            <!-- Button trigger modal -->
+            <div ng-if="$root.isAdmin">
+            <button type="button" class="btn btn-primary btn-lg" ng-click="openAddEditModel()">
+                New message
+            </button>
+            </div>
+            <!-- Add/Edit message modal -->
+            <div class="modal fade" id="addEditMessageModelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modelTitleId">Add message</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <form class="form-group" name="form" id="form" ng-submit="addOrEditMessage()">
+                                    <label for="">Title: </label>
+                                    <input type="text" class="form-control" name="" ng-model="selectedMessage.title" id="fNameId" aria-describedby="helpId" placeholder="Add title"
+                                        required>
+                                    <label for="">Details: </label>
+                                    <textarea class="w-100 form-control" name="details" ng-model="selectedMessage.details" placeholder="Add details" required></textarea>
+                                    <label for="">Priority: </label>
+                                    <select class="form-control" ng-model="selectedMessage.priority" ng-options="x for x in priority" required>
+                                    </select>
+                                    <label for="">Image: </label>
+                                    <input type="file" class="form-control" name="" fileread="selectedMessage.image" id="imgId" aria-describedby="helpId" placeholder="Image">
+                                    <br>
+                                    <input type="submit" class="btn btn-primary" value="Ok">
+                                    <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="accordion" ng-repeat="message in messages| filter:filterMessages | orderBy:sortProp">
+        <message my-message="message"></message>
+    </div>
+
+
+</div>

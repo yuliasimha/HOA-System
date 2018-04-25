@@ -1,0 +1,49 @@
+<nav-bar></nav-bar>
+<div class="container">
+    <div class=" mt-3  mb-1">
+        <input type="text" class="w-100 rounded" ng-model="searchByName" placeholder=" Search">
+
+
+        <!-- Button trigger modal -->
+        <div ng-if="$root.isAdmin">
+        <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" ng-click="openAddEditModel()">
+            New Tenant
+        </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addEditUserModelId" tabindex="-1" role="dialog" aria-labelledby="addEditUserModelIdTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="addEditUserModelIdTitleId">Add/Edit tenant</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" placeholder="First Name" ng-model="selectedTenant.firstName">
+                            <input type="text" class="form-control" name="" placeholder="Last Name" ng-model="selectedTenant.lastName">
+                            <input type="email" class="form-control" placeholder="E-mail" ng-model="selectedTenant.email">
+                            <input type="number" class="form-control" ng-model="selectedTenant.apartment" placeholder="Apartment number">
+                            <input type="file" class="form-control" name="" fileread="selectedTenant.image" placeholder="Image">
+                            <input type="text" class="form-control" name="" placeholder="User Name" ng-model="selectedTenant.userName">
+                            <input type="password" class="form-control" ng-model="selectedTenant.password" placeholder="Password">
+                            <label>
+                                <input type="checkbox" value="" ng-model="selectedTenant.isCommitteeMember" unchecked>Committee member</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="addEditTenant()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="accordion2" ng-repeat="user in users| filter:filterTenants">
+        <user my-user="user"></user>
+    </div>
+</div>

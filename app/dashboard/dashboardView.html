@@ -1,0 +1,36 @@
+<nav-bar></nav-bar>
+<div class="h-100 container">
+    <div class="h-100 mt-3  mb-1">
+        <div class=" h-50 row border-bottom">
+            <div class="scroll col-md-6 border-right p-1">
+                <a href="#!/messages">Last Messages</a>
+                <ul class="m-1">
+                    <li ng-repeat="message in lastMessages">
+                        <h5>{{message.title}}</h5>
+                    </li>
+                    </table>
+            </div>
+            <div class="scroll col-md-6 p-3">
+                <a class="text-center" href="#!/voting">Pending Voting</a>
+                <div class="m-1 clear-fix">
+                    <div class="float-left w-50" ng-repeat="pendingVoting in usersPendingVoting">
+                        <div google-chart chart="getChartObject(pendingVoting)" style="height: 100px; width:90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll p-3 row">
+            <div class="col-md-12">
+                <a class="text-center" href="#!/voting">Voting Results </a>
+                <div class="m-1 clear-fix">
+                    <div class="float-left w-25" ng-repeat="endedVoting in endedVotings">
+                        <div>
+                            <div google-chart chart="getChartObject(endedVoting)" style="height:60%; width:90%"></div>
+                            Result:<p>{{endedVoting.result}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
